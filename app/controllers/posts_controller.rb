@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(allowed_post_params)
-    @post[:user_id] = @user[:id]
+    @post[:user_id] = current_user[:id]
 
     if @post.save
       redirect_to posts_path
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   def authenticate_user
     @user = current_user
     # access_denied view not defined
-    render 'access_denied', status: :access_denied if @user.nil?
+    render 'access_denied', status: :unauthorized if @user.nil?
   end
   
   def allowed_post_params
