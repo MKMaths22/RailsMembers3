@@ -8,4 +8,13 @@
 <% end %>
 <br>
 <br>
-Posts go here with authors only shown to logged in members.
+
+<% @posts.each do |post| %>
+  <%= post[:title] %>
+  <%= post[:body] %>
+  <% if current_user %>
+    Authored by <%= User.find(post[:user_id])[:name] %>
+  <% else %>
+    You must be logged in to see who wrote this post.
+  <% end %>
+<% end %>
