@@ -1,23 +1,17 @@
-<% if current_user %>
-  <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete } %>
-<% else %>
-  Are you a club member?
-  <%= link_to "Sign In", new_user_session_path %><br>
-  Join our club now!
-  <%= link_to "Sign Up", new_user_registration_path %>
-<% end %>
-<br>
-<br>
-
-<% @posts.each do |post| %>
-  <%= post[:id] %>) <br>
-  Title: <%= post[:title] %> <br>
-  Body: <%= post[:body] %> <br>
-  <% if current_user %>
-    Written by <%= User.find(post[:user_id])[:name] %>
-  <% else %>
-    You must be logged in to see who wrote this post.
-  <% end %>
+<%= render 'sign_up_in_or_out' %>
+<body class="indexbody">
+  <% @posts.each do |post| %>
+    <div class="postdiv">
+      <%= post[:id] %>) <br>
+      Title: <%= post[:title] %> <br>
+      Body: <%= post[:body] %> <br>
+      <% if current_user %>
+       Written by <%= User.find(post[:user_id])[:name] %>
+      <% else %>
+        <p class="hidden_from_you"> You must be logged in to see who wrote this post.</p>
+      <% end %>
+    </div>
   <br>
   <br>
 <% end %>
+</body>

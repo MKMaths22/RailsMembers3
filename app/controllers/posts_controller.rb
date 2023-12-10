@@ -25,7 +25,6 @@ class PostsController < ApplicationController
 
   def authenticate_user
     @user = current_user
-    # access_denied view not defined
     render 'access_denied', status: :unauthorized if @user.nil?
   end
   
