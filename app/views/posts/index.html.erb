@@ -1,6 +1,14 @@
 <%= render 'sign_up_in_or_out' %>
 
-<%= link_to "Make a post", new_post_path %>
+<% unless current_user %>
+  <style>
+    .makepostlink { opacity: 40% }
+    .makepostlink { pointer-events: none }
+  </style>
+<% end %>
+<div>
+  <%= link_to "Make a post", new_post_path, :class => "makepostlink" %>
+</div>
 <body class="indexbody">
   <% @posts.each do |post| %>
     <div class="postdiv">
