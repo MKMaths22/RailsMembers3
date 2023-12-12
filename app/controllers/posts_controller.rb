@@ -12,7 +12,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path
     else
-      puts "Errors are #{@post.errors.full_messages}"
+      flash.now[:alert] = @post.errors.full_messages
+      # puts "Errors are #{@post.errors.full_messages}"
       render 'new', status: :unprocessable_entity
     end
   end

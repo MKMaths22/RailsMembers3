@@ -1,5 +1,6 @@
 <div class="linksbar">
   <% if current_user %>
+    <p> Signed in as <%= current_user[:name] %></p>
     <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete } %>
   <% else %>
     Are you a club member?
