@@ -1,7 +1,10 @@
 <%= render 'sign_up_in_or_out' %>
 
 <% if @post.errors.any? %>
-  <p>Post had errors</p>
+  <% @post.errors.full_messages.each do |message| %>
+    <%= message %>
+    <br>
+  <% end %>
 <% end %>
 
 <%= form_with model: @post do |f| %>
