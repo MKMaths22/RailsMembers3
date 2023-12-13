@@ -3,6 +3,12 @@
   margin: 0px;
 }
 
+/* Posts errors will display differently, so I disable the notice and alert messages in posts views */
+
+.notice, .alert {
+  display: none;
+}
+
 .indexbody {
   display: flex;
   flex-direction: column;

@@ -1,5 +1,9 @@
 <%= render 'sign_up_in_or_out' %>
 
+<% if @post.errors.any? %>
+  <p>Post had errors</p>
+<% end %>
+
 <%= form_with model: @post do |f| %>
   <%= f.label :title, "Title Of Post" %> <br>
   <%= f.text_field :title %> <br>
