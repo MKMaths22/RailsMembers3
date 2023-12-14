@@ -20,9 +20,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+     if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+       puts "if condition has been triggered"
+       params[:user].delete(:password)
+       params[:user].delete(:password_confirmation)
+       puts "params now are #{params[:user]}"
+     end
+     super
+     puts "Errors found are #{@user.errors.full_messages}"
+  end
 
   # DELETE /resource
   # def destroy
