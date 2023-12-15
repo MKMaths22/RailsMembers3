@@ -1,7 +1,17 @@
 <div class="linksbar">
-  <% if current_user %>
+<div class="linkdiv">
+<%= link_to "Home", root_path %>
+</div>
+
+<% if current_user %>
     <p> Signed in as <%= current_user[:name] %></p>
+  <div class="linkdiv">
+    <%= link_to "Edit Account", edit_user_registration_path %>
+  </div>
+  
+  <div class="linkdiv">
     <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete } %>
+  </div>
   <% else %>
     Are you a club member?
     <div class="linkdiv">
