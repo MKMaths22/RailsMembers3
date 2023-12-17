@@ -15,7 +15,8 @@
       Title: <%= post[:title] %> <br>
       Body: <%= post[:body] %> <br>
       <% if current_user %>
-       Written by <%= User.find(post[:user_id])[:name] %>
+        Written by 
+        <%= User.find(post[:user_id])[:deleted] ? 'Anonymous' : User.find(post[:user_id])[:name] %>
       <% else %>
         <p class="hidden_from_you"> You must be logged in to see who wrote this post.</p>
       <% end %>
