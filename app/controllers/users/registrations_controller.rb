@@ -32,17 +32,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # DELETE /resource
-  def destroy
+  # def destroy
   #   super
-    puts "The destroy method has started"
-      if @user.posts.any?
-        puts "This user has posts"
-        @user.deleted = true
-        redirect_to destroy_user_session_path, method: :delete
-      else
-        super
-      end
-  end
+  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
