@@ -3,7 +3,7 @@
   margin: 0px;
 }
 
-/* Posts errors will display differently, so I disable the notice and alert messages in posts views */
+/* Posts errors will display differently, so I disable the alert messages in posts views */
 
 .alert {
   display: none;
